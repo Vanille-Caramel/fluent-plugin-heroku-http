@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name          = 'fluent-plugin-heroku-http'
-  gem.version       = '0.0.1'
+  gem.version       = '0.0.2'
   gem.authors       = ['Platform Delivery']
   gem.email         = ['ops@applause.com']
   gem.description   = 'fluent plugin to drain heroku http'
@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
-  gem.add_runtime_dependency 'fluentd', '>= 1.0'
+  gem.add_runtime_dependency 'fluentd', '>= 1.10'
   gem.add_development_dependency 'rake'
   gem.add_development_dependency('test-unit', ['~> 3.0.2'])
 end
