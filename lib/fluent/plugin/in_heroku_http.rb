@@ -15,7 +15,10 @@ module Fluent
 
       def parse_params_with_parser(params)
         drain_id = params['HTTP_LOGPLEX_DRAIN_TOKEN']
+        entity_guid = params['HTTP_ENTITY_GUID']
 
+        record['entity.guid'] = entity_guid
+        
         if @drain_ids.nil? || @drain_ids.include?(drain_id)
           _time, records = super
 
@@ -26,6 +29,8 @@ module Fluent
           [_time, records]
         else
           log.warn("drain_id #{drain_id.inspect} is not in #{@drain_ids.inspect}.")
+          
+        
 
           [nil, []]
         end
